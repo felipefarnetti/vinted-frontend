@@ -1,0 +1,82 @@
+@import url("https://fonts.cdnfonts.com/css/maison-neue?styles=49784");
+
+.payment-page {
+  background-color: #ebebee;
+  height: calc(100vh - 59px);
+}
+
+.payment-container {
+  margin: 0 auto;
+  padding: 36px 20px;
+  width: 600px;
+  font-family: "Maison Neue", sans-serif;
+}
+
+.payment-card {
+  background-color: white;
+}
+
+.title {
+  color: #999;
+  display: block;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 24px 24px 8px;
+}
+.payment-card .content {
+  padding: 24px;
+  text-align: justify;
+}
+
+.payment-card ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.payment-card li {
+  align-items: center;
+  color: #666;
+  display: grid;
+  font-size: 16px;
+  grid: auto/1fr auto;
+  line-height: 22px;
+  padding: 4px 0;
+}
+
+.divider {
+  background: rgb(220, 220, 220);
+  height: 1px;
+  margin: 24px 0;
+  width: 100%;
+}
+
+.payment-card .content .bold {
+  font-weight: bold;
+  color: black;
+}
+
+.stripeBlock {
+  background-color: #fff;
+
+  border-radius: 4px;
+  box-shadow: black 0 1px 2px;
+  font-size: 1em;
+  margin: 10px 0 20px;
+  outline: 0;
+  padding: 10px 14px;
+  border-bottom: black 1px solid;
+}
+
+.payment-card button {
+  background-color: rgb(61, 171, 61);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  height: 44px;
+  line-height: 22px;
+  margin-top: 20px;
+  padding: 0 14px;
+  width: 100%;
+}

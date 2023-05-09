@@ -1,0 +1,134 @@
+@import url("https://fonts.cdnfonts.com/css/maison-neue?styles=49784");
+
+* {
+  font-family: "Maison Neue", sans-serif;
+}
+.publish-container h2 {
+  font-size: 24px;
+  padding-top: 40px;
+  font-family: "Maison Neue", sans-serif;
+}
+
+.publish-main {
+  display: flex;
+  background-color: #ebedee;
+  font-family: "Maison Neue", sans-serif;
+}
+
+.publish-container {
+  margin: 0 auto;
+  width: 1280px;
+  /* border: solid black 2px; */
+}
+
+/* PARTIE IMAGE UPLOAD  */
+
+.file-select {
+  background-color: #fff;
+  box-shadow: 0 0 2px gray;
+  margin: 20px 0;
+  padding: 24px;
+}
+.file-select-sans {
+  align-items: center;
+  border: 1px dashed #ebedee;
+  border-radius: 3px;
+  display: flex;
+  height: 200px;
+  justify-content: center;
+}
+.input-design {
+  align-items: center;
+  border: 1px solid #0ab1ba;
+  border-radius: 4px;
+  display: flex;
+  height: 45px;
+  justify-content: center;
+  width: 200px;
+  font-weight: bold;
+}
+
+.file-select label {
+  color: #0ab1ba;
+  cursor: pointer;
+}
+
+/* .file-select input {
+  appearance: none;
+} */
+
+/* PARTIE TITRE ET DESCRIPTION */
+
+.text-input-area {
+  background-color: #fff;
+  box-shadow: 0 0 2px grey;
+  margin: 20px 0;
+}
+
+.text-input {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+  border-bottom: 1px solid #ebedee;
+}
+
+.text-input input {
+  border: none;
+  border-bottom: 1px solid #ebedee;
+  color: black;
+  font-size: 16px;
+  width: 50%;
+  outline: none;
+}
+.text-input textarea {
+  border: none;
+  border-bottom: 1px solid #ebedee;
+  color: black;
+  font-size: 16px;
+  outline: none;
+  resize: none;
+  width: 50%;
+}
+
+.checkbox-area {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+
+.checkbox-area span {
+  color: #666;
+}
+
+/* .checkbox-input {
+} */
+
+/* .checkbox-design {
+  color: #666;
+  border: 1px solid black;
+  border-radius: 3px;
+  margin: 0 15px 0 0;
+  padding: 2px 11px;
+  cursor: default;
+  
+} */
+.form-button-div {
+  display: flex;
+  justify-content: flex-end;
+}
+.buttonOffre {
+  align-items: center;
+  color: white;
+  background-color: #0ab1ba;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  height: 45px;
+  justify-content: center;
+  width: 200px;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 40px;
+}

@@ -1,0 +1,61 @@
+/* .container {
+  font-size: 20px;
+} */
+@import url("https://fonts.cdnfonts.com/css/maison-neue?styles=49784");
+
+.hero {
+  font-size: 20px;
+  position: relative;
+}
+
+.hero img:nth-child(1) {
+  width: 100vw;
+  height: 455px;
+  object-fit: cover;
+}
+.hero img:nth-child(2) {
+  width: 90%;
+  bottom: 0;
+  right: 0;
+  object-fit: cover;
+  position: absolute;
+}
+
+.mainArea {
+  width: 100vw;
+  display: flex;
+  /* justify-content: center; */
+  flex-wrap: wrap;
+  font-family: "Maison Neue", sans-serif;
+  font-weight: bold;
+  padding: 30px;
+}
+
+.removeDecoration {
+  text-decoration: none;
+  color: grey;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: row;
+  margin-top: 25px;
+  align-items: center;
+}
+.productInfo span {
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+.productInfo img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  margin-left: 10px;
+}
+
+.productPhoto {
+  height: 360px;
+  width: 235px;
+  margin: 5px;
+}
