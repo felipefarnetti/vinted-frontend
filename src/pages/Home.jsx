@@ -4,7 +4,7 @@ import hero from "../assets/hero.jpg";
 import tear from "../assets/tear.svg";
 
 //Components
-import OfferCard from "../Components/OfferCard";
+import OfferCard from "../components/OfferCard";
 
 const Home = ({ search }) => {
   const [data, setData] = useState({});
