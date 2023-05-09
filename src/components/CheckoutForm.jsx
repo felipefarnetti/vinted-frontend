@@ -7,7 +7,7 @@ import axios from "axios";
 
 import "./checkoutForm.css";
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ token }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [completed, setCompleted] = useState(false);
 
