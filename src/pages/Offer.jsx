@@ -5,7 +5,7 @@ import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 
 const Offer = ({ token }) => {
-  const [data, setData] = useState({});
+  // const [data, setData] = useState({});
   const [isLoading, SetIsLoading] = useState(true);
   const [offer, setOffer] = useState();
 
@@ -69,7 +69,7 @@ const Offer = ({ token }) => {
           </div>
           <div>
             {token ? (
-              <Link to="/payment">
+              <Link to="/payment" state={offer}>
                 <button className="buyButton">Acheter</button>
               </Link>
             ) : (

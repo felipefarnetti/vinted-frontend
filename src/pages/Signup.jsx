@@ -5,7 +5,7 @@ import axios from "axios";
 //import fichier CSS de la page Signup
 import "./signup.css";
 
-const Signup = ({ handleToken }) => {
+const Signup = ({ handleTokenAndId }) => {
   //Garder les états utilisés dans le form
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -33,7 +33,7 @@ const Signup = ({ handleToken }) => {
               }
             );
             if (response.data.token) {
-              handleToken(response.data.token);
+              handleTokenAndId(response.data.token, response.data._id);
               navigate("/");
             }
           } catch (error) {

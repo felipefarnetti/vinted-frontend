@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
-const Login = ({ handleToken }) => {
+const Login = ({ handleTokenAndId }) => {
   //Garder les états utilisés dans le form
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,7 +23,7 @@ const Login = ({ handleToken }) => {
               { email: email, password: password }
             );
             if (response.data.token) {
-              handleToken(response.data.token);
+              handleTokenAndId(response.data.token, response.data._id);
               navigate("/");
             }
           } catch (error) {

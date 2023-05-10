@@ -3,7 +3,7 @@ import logo from "../assets/logo.png";
 import searchMagnifier from "../assets/magnifying-glass-solid.svg";
 import { Link } from "react-router-dom";
 
-const Header = ({ handleToken, token, search, setSearch }) => {
+const Header = ({ handleTokenAndId, token, search, setSearch }) => {
   return (
     <header className="header-container">
       <div>
@@ -38,7 +38,7 @@ const Header = ({ handleToken, token, search, setSearch }) => {
               <button
                 className="buttonLogout"
                 onClick={() => {
-                  handleToken(null);
+                  handleTokenAndId(null);
                 }}
               >
                 Se déconnecter

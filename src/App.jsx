@@ -11,25 +11,28 @@ import Publish from "./pages/Publish";
 import Payment from "./pages/Payment";
 // Component
 import Header from "./components/Header";
+import CheckoutForm from "./components/CheckoutForm";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("vintedToken") || null);
   // state pour la recherche
   const [search, setSearch] = useState("");
-  const handleToken = (token) => {
-    if (token) {
+  const handleTokenAndId = (token, id) => {
+    if (token && id) {
       setToken(token);
-      Cookies.set("vintedToken", token, { expires: 6 });
+      Cookies.set("vintedToken", token, { expires: 6, sameSite: "Strict" });
+      Cookies.set("vintedId", id, { expires: 6, sameSite: "strict" });
     } else {
       setToken(null);
       Cookies.remove("vintedToken");
+      Cookies.remove("vintedId");
     }
   };
 
   return (
     <Router>
       <Header
-        handleToken={handleToken}
+        handleTokenAndId={handleTokenAndId}
         token={token}
         search={search}
         setSearch={setSearch}
@@ -38,9 +41,20 @@ function App() {
         <Route path="/" element={<Home search={search} />} />
         <Route path="/offer/:id" element={<Offer token={token} />} />
         <Route path="/publish" element={<Publish token={token} />} />
-        <Route path="/payment" element={<Payment token={token} />} />
-        <Route path="/signup" element={<Signup handleToken={handleToken} />} />
-        <Route path="/login" element={<Login handleToken={handleToken} />} />
+        <Route
+          path="/payment"
+          element={
+            <Payment token={token} handleTokenAndId={handleTokenAndId} />
+          }
+        />
+        <Route
+          path="/signup"
+          element={<Signup handleTokenAndId={handleTokenAndId} />}
+        />
+        <Route
+          path="/login"
+          element={<Login handleTokenAndId={handleTokenAndId} />}
+        />
       </Routes>
     </Router>
   );

@@ -1,22 +1,26 @@
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import axios from "axios";
-// import Cookies from "js-cookie";
+import Cookies from "js-cookie";
 
 import "./checkoutForm.css";
 
-const CheckoutForm = ({ token }) => {
+const CheckoutForm = ({
+  token,
+  handleTokenAndId,
+  product_name,
+  product_price,
+}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [completed, setCompleted] = useState(false);
 
-  // const user_id = Cookies.get("user_id");
   const protectionFee = 0.5;
   const deliveryFee = 4.5;
   // const priceTotal = PRIX PRODUIT + protectionFee + deliveryFee;
   const stripe = useStripe();
   const elements = useElements();
+  const id = Cookies.get("vintedId");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -25,7 +29,7 @@ const CheckoutForm = ({ token }) => {
       const cardElement = elements.getElement(CardElement);
 
       const stripeResponse = await stripe.createToken(cardElement, {
-        name: "user_id",
+        name: id,
       });
       console.log(stripeResponse);
 
@@ -33,7 +37,11 @@ const CheckoutForm = ({ token }) => {
 
       const responseFromBackend = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/payment",
-        { token: stripeToken, title: "titre", amount: 10 }
+        {
+          token: stripeToken,
+          title: product_name,
+          amount: product_price,
+        }
       );
       console.log(responseFromBackend);
 
@@ -55,7 +63,7 @@ const CheckoutForm = ({ token }) => {
           <div className="content">
             <ul>
               <li>
-                Commande<span>Prix du produit</span>
+                Commande<span>{product_price}</span>
               </li>
               <li>
                 Frais protection acheteurs<span>{protectionFee}</span>
@@ -71,7 +79,7 @@ const CheckoutForm = ({ token }) => {
           <div className="content">
             <ul>
               <li className="bold">
-                Total<span>PRix total €</span>
+                Total<span>{product_price}€</span>
               </li>
             </ul>
           </div>
@@ -80,8 +88,8 @@ const CheckoutForm = ({ token }) => {
         <div className="payment-card">
           <div className="content">
             Il ne vous reste plus qu'une étape pour vous offrir
-            <span className="bold">NOM PRODUIT</span>. Vous allez payer{" "}
-            <span className="bold">Prix TOTAL €</span>
+            <span className="bold">{product_name}</span>. Vous allez payer{" "}
+            <span className="bold">{product_price} €</span>
             (frais de protection et frais de port inclus).
             <div className="divider"></div>
             <form onSubmit={handleSubmit}>
@@ -97,7 +105,7 @@ const CheckoutForm = ({ token }) => {
                   ) : (
                     <div>
                       <CardElement disabled={completed} />
-                      <button type="submit" disabled={completed}>
+                      <button type="submit" disabled={isLoading}>
                         Pay
                       </button>
                     </div>
