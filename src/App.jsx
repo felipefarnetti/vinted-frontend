@@ -11,7 +11,6 @@ import Publish from "./pages/Publish";
 import Payment from "./pages/Payment";
 // Component
 import Header from "./components/Header";
-import CheckoutForm from "./components/CheckoutForm";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("vintedToken") || null);
